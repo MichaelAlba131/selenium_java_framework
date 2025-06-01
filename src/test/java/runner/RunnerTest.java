@@ -23,7 +23,7 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
         value = "pretty, html:target/cucumber/html, json:target/cucumber/report.json, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
 )
 // (Opcional) Executa apenas os cenários marcados com @loginFeature
-@IncludeTags("loginFeature")
+
 public class RunnerTest {
     // Nenhum código necessário, só as anotações
 }
