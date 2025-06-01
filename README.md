@@ -43,6 +43,26 @@ O projeto inclui a implementação do Allure Report, que permite a geração de 
 
 O Allure Report é uma ferramenta poderosa para gerar relatórios de testes automatizados, proporcionando uma visualização clara e interativa dos resultados dos testes. Abaixo estão os passos e considerações para integrar e utilizar o Allure Report em seu projeto Selenium Java.
 
+<h2>🚀 Instale o Allure CLI</h2>
+
+<p><strong>macOS:</strong><br>
+  ```bash
+brew install allure
+```
+</p>
+
+<p><strong>Linux:</strong><br>
+    ```bash
+sdk install allure
+```
+<span style="font-size:smaller;">Ou veja outras opções de instalação em <a href="https://docs.qameta.io/allure/#_installing_a_commandline" target="_blank">https://docs.qameta.io/allure/#_installing_a_commandline</a></span>
+</p>
+
+<p><strong>Windows:</strong><br>
+Baixe o Allure no <a href="https://github.com/allure-framework/allure2/releases/latest" target="_blank">site oficial</a> e adicione a pasta <code>/bin</code> ao <strong>Path</strong> do sistema.
+</p>
+
+
 #### 1. 🏃‍♂️ Execução do TestRunner
 Para garantir que o Allure Report seja gerado corretamente, é necessário executar os testes a partir da classe `TestRunner`. Isso assegura que todas as informações relevantes dos testes sejam coletadas e armazenadas nos resultados do Allure.
 
