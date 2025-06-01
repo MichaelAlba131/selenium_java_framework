@@ -3,6 +3,7 @@ package utils;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -12,10 +13,12 @@ import org.junit.jupiter.api.Assertions;
 
 import java.time.Duration;
 
+import static utils.driver.Driver.takeScreenshot;
+
 /**
  * This class contains utility methods for performing actions on web elements.
  */
-public class Utils extends Driver {
+public class Utils {
 
     /**
      * Try performing actions on web elements with retries.
@@ -50,6 +53,7 @@ public class Utils extends Driver {
      */
     public void performActionMethod(String field, Object elementObj, String valor) {
         WebElement element;
+        WebDriver driver = Driver.getDriver();
         try {
             if (elementObj instanceof WebElement)
                 element = (WebElement) elementObj;
@@ -64,11 +68,11 @@ public class Utils extends Driver {
                     String type = element.getAttribute("type");
                     if (type.equalsIgnoreCase("submit") || type.equalsIgnoreCase("button")) {
                         element.click();
-                        logMessage(field + "clicked ");
+                        logMessage(field + " clicked ");
                     } else if (type.equalsIgnoreCase("checkbox")) {
                         if (!element.isSelected()) {
                             element.click();
-                            logMessage(field + "clicked ");
+                            logMessage(field + " clicked ");
                         }
                     } else {
                         element.sendKeys(valor);
@@ -105,6 +109,7 @@ public class Utils extends Driver {
      * @param timeToWait The maximum wait time in seconds.
      */
     public static void waitForElementsLambda(By byElement, WebElement element, int timeToWait) {
+        WebDriver driver = Driver.getDriver();
         new WebDriverWait(driver, Duration.ofSeconds(20)).until(
                 d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
         if (byElement != null)
