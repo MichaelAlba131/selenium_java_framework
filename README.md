@@ -45,14 +45,13 @@ O Allure Report é uma ferramenta poderosa para gerar relatórios de testes auto
 
 <h2>🚀 Instale o Allure CLI</h2>
 
-<p><strong>macOS:</strong><br>
-  ```bash
+<strong>macOS:</strong>
+```bash
 brew install allure
 ```
-</p>
 
-<p><strong>Linux:</strong><br>
-    ```bash
+<strong>Linux:</strong>
+```bash
 sdk install allure
 ```
 <span style="font-size:smaller;">Ou veja outras opções de instalação em <a href="https://docs.qameta.io/allure/#_installing_a_commandline" target="_blank">https://docs.qameta.io/allure/#_installing_a_commandline</a></span>
@@ -62,6 +61,7 @@ sdk install allure
 Baixe o Allure no <a href="https://github.com/allure-framework/allure2/releases/latest" target="_blank">site oficial</a> e adicione a pasta <code>/bin</code> ao <strong>Path</strong> do sistema.
 </p>
 
+***
 
 #### 1. 🏃‍♂️ Execução do TestRunner
 Para garantir que o Allure Report seja gerado corretamente, é necessário executar os testes a partir da classe `TestRunner`. Isso assegura que todas as informações relevantes dos testes sejam coletadas e armazenadas nos resultados do Allure.
