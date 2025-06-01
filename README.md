@@ -1,4 +1,4 @@
-# 🚀 Selenium Java Framework 🖥️
+<h1>🚀 Projeto Selenium Java BDD + Page Objects +  JUnit 5</h1>
 
 Código limpo e eficiente com Selenium WebDriver utilizando Java. Um framework leve e flexível para automação de testes em aplicações web. Abaixo estão algumas das principais características:
 
@@ -70,3 +70,7 @@ Este projeto contém métodos utilitários projetados para tornar os testes com 
 - Mecanismo de Log 📝: Cada operação é registrada, facilitando a depuração.
 - Espera pela Visibilidade dos Elementos ⏱️: Métodos para aguardar até que um elemento esteja visível. Economiza tempo e reduz testes inconsistentes.
 </html>
+
+## Licença
+Copyright (c) 2025 Michael Alba.
+Todos os direitos reservados.

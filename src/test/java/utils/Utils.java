@@ -1,7 +1,6 @@
 package utils;
 
 import io.qameta.allure.Attachment;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -9,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.driver.Driver;
+import org.junit.jupiter.api.Assertions;
 
 import java.time.Duration;
 
@@ -34,7 +34,7 @@ public class Utils extends Driver {
                 return;
             } catch (Exception e) {
                 if (++tries >= maxTries)
-                    Assert.fail("Erro ao realizar a ação. Tentativa " + tries + " de " + maxTries);
+                    Assertions.fail("Erro ao realizar a ação. Tentativa " + tries + " de " + maxTries);
                 logMessage("Erro ao realizar a ação. Tentativa " + tries + " de " + maxTries);
                 Thread.sleep(1000);
             }
