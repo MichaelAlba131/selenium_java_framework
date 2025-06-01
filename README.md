@@ -91,6 +91,15 @@ Este projeto contém métodos utilitários projetados para tornar os testes com 
 - Espera pela Visibilidade dos Elementos ⏱️: Métodos para aguardar até que um elemento esteja visível. Economiza tempo e reduz testes inconsistentes.
 </html>
 
+## 🔀 Branches e Execução de Testes
+
+### 🌱 main
+Esta branch contém a configuração **padrão** do projeto, onde os cenários utilizam o runner tradicional do Cucumber e são executados **de forma sequencial** (um por vez).
+
+### ⚡ parallel_tests
+Nesta branch, os testes estão configurados para **execução paralela dos cenários**!
+O paralelismo é controlado pela configuração do Maven (`pom.xml`) através do plugin Maven Surefire, com as opções corretas para o Cucumber JUnit Platform. Agora, múltiplos cenários podem ser executados ao mesmo tempo, acelerando os testes da suíte.
+
 ## Licença
 Copyright (c) 2025 Michael Alba.
 Todos os direitos reservados.
