@@ -12,7 +12,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.java.version>4.1.4</selenium.java.version>
-        <cucumber.java.version>7.15.0</cucumber.java.version> <!-- Atualize conforme necessário -->
+        <cucumber.java.version>7.15.0</cucumber.java.version>
         <junit.jupiter.version>5.10.2</junit.jupiter.version>
         <slf4j.version>2.0.0-alpha6</slf4j.version>
         <allure.cucumber6.jvm.version>2.29.1</allure.cucumber6.jvm.version>
@@ -27,6 +27,19 @@
         </license>
     </licenses>
 
+    <!-- BOM management for easy version alignment -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-bom</artifactId>
+                <version>${cucumber.java.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- Selenium -->
         <dependency>
@@ -39,14 +52,12 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.java.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- Cucumber JUnit 5 (JUnit Platform) -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit-platform-engine</artifactId>
-            <version>${cucumber.java.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- JUnit 5 -->
@@ -71,15 +82,15 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber7-jvm</artifactId>
-            <version>2.24.0</version> <!-- ou a última disponível e compatível com o Cucumber 7.x -->
+            <version>2.24.0</version>
         </dependency>
+        <!-- JUnit Platform Suite (anotação para runner Suite) -->
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-suite</artifactId>
-            <version>1.10.2</version> <!-- Combine com a versão do JUnit Jupiter, por exemplo, 5.10.x -->
+            <version>1.10.2</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -103,9 +114,16 @@
                         <include>**/*Test.java</include>
                         <include>**/*IT.java</include>
                     </includes>
+                    <properties>
+                        <configurationParameters>
+                            cucumber.execution.parallel.enabled=true
+                            cucumber.execution.parallel.config.strategy=fixed
+                            cucumber.execution.parallel.config.fixed.parallelism=4
+                            cucumber.execution.parallel.config.fixed.max-pool-size=4
+                        </configurationParameters>
+                    </properties>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

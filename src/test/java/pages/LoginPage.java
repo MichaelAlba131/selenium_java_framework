@@ -15,13 +15,13 @@ public class LoginPage extends Utils {
     }
 
     @FindBy(how = How.XPATH, using = "//input[@name='email']")
-    public static WebElement email;
+    public WebElement email;
 
     @FindBy(how = How.XPATH, using = "//input[@name='password']")
-    public static WebElement senha;
+    public WebElement senha;
 
     @FindBy(how = How.XPATH, using = "//button/div[contains(text(),'Entrar')]//ancestor::button")
-    public static WebElement entrar;
+    public WebElement entrar;
 
 
 }

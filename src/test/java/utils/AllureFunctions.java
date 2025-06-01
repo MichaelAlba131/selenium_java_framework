@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import utils.driver.Driver;
@@ -21,9 +22,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class AllureFunctions extends Driver {
+public class AllureFunctions {
+
     public static void saveScreenshot() {
-        Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+        WebDriver driver = Driver.getDriver();
+        Allure.addAttachment("Screenshot",
+                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }
 
     public static void saveFileTXT(String nameFile, String document) {
@@ -66,7 +70,7 @@ public class AllureFunctions extends Driver {
 
     @Deprecated
     public static void addDescription(String description) {
-        AllureFunctions.addDescription(description);
+        // Deprecated: implement if needed or remove this method
     }
 
     public static void createCategoriesReport() {
