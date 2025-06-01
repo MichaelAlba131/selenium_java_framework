@@ -1,0 +1,42 @@
+name: Run Selenium Tests with Both Jobs Always
+
+on:
+  push:
+    branches: ["main", "parallel_tests"]
+  pull_request:
+    branches: ["main", "parallel_tests"]
+
+jobs:
+  run-on-main:
+    name: Run Selenium tests on main branch
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: Run tests on main
+        run: mvn clean test
+
+  run-on-parallel:
+    name: Run Selenium tests on parallel_tests branch
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: Run parallel tests
+        run: mvn clean test
